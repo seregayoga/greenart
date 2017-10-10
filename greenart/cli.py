@@ -8,7 +8,6 @@ Example:
   greenart image.jpg
 """
 
-import sys
 from docopt import docopt
 from .image import Image
 from . import __version__

@@ -18,16 +18,16 @@ class Image:
             # clean history before drawing
             'git reset --hard {}'.format(__version__)
         ]
-        days_ago = Image.__get_days_ago_when_was_first_sunday()
+        days_ago = Image._get_days_ago_when_was_first_sunday()
         for x in range(0, Image.X):
             for y in range(0, Image.Y):
                 grey_color = self.image.getpixel((x, y))
-                github_color = Image.__get_github_color_from_grey(grey_color)
+                github_color = Image._get_github_color_from_grey(grey_color)
 
                 for index in range(0, github_color):
                     echo = 'echo {}{} > for_diff.txt'.format(days_ago, index)
                     add = 'git add for_diff.txt'
-                    commit = self.__get_commit_from_past(days_ago)
+                    commit = self._get_commit_from_past(days_ago)
                     commands.extend([echo, add, commit])
                 days_ago -= 1
 
@@ -36,18 +36,18 @@ class Image:
         return commands
 
     @staticmethod
-    def __get_days_ago_when_was_first_sunday() -> int:
+    def _get_days_ago_when_was_first_sunday() -> int:
         return 365 + datetime.datetime.now().weekday()
 
     @staticmethod
-    def __get_commit_from_past(days_ago: int) -> str:
+    def _get_commit_from_past(days_ago: int) -> str:
         now = datetime.datetime.now()
         delta = datetime.timedelta(days=days_ago)
         past_date = now - delta
         return 'git commit -m "green art" --date "{}"'.format(past_date.isoformat())
 
     @staticmethod
-    def __get_github_color_from_grey(grey_color: int) -> int:
+    def _get_github_color_from_grey(grey_color: int) -> int:
         if 0 <= grey_color < 51:
             return 7
         if 51 <= grey_color < 102:
