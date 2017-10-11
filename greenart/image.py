@@ -44,7 +44,8 @@ class Image:
         now = datetime.datetime.now()
         delta = datetime.timedelta(days=days_ago)
         past_date = now - delta
-        return 'git commit -m "green art" --date "{}"'.format(past_date.isoformat())
+        return 'git commit -m "green art" --date "{}"'.format(
+            past_date.isoformat())
 
     @staticmethod
     def _get_github_color_from_grey(grey_color: int) -> int:

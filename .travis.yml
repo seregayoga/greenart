@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "3.4"
+  - "3.6"
+
+install:
+  - pip install scrutinizer-ocular
+  - pip install -r requirements.txt
+  - pip install -r requirements-dev.txt
+
+script:
+  - nosetests -v --with-coverage --cover-package=greenart/
+  - flake8 greenart
+
+after_success:
+  - ocular --data-file ".coverage" --config-file ".coveragerc"
