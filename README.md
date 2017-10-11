@@ -1,4 +1,6 @@
-# Greenart
+# Greenart 
+
+[![Build Status](https://travis-ci.org/seregayoga/greenart.svg?branch=master)](https://travis-ci.org/seregayoga/greenart)
 
 ![Screenshot](screenshot.png)
 
