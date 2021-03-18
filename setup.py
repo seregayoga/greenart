@@ -19,6 +19,6 @@ setup(name='greenart',
       },
       install_requires=[
           'docopt==0.6.2',
-          'Pillow==4.0.0',
+          'Pillow==8.1.1',
       ],
       )
