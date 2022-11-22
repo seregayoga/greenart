@@ -1,2 +1,2 @@
 docopt==0.6.2
-Pillow==4.0.0
+Pillow==9.3.0
